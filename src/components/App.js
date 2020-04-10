@@ -1,12 +1,21 @@
 import React from 'react';
-import Button from '@material-ui/core/Button';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route
+} from 'react-router-dom';
+import Navigation from './Navigation';
+import Home from './Home';
+import Pokemon from './Pokemon';
 
-function App() {
-  return (
-    <Button variant="contained" color="primary">
-      Hello Pokedex!
-    </Button>
-  );
-}
+const App = () => (
+  <Router>
+    <Navigation />
+    <Switch>
+      <Route exact path="/" component={Home} />
+      <Route exact path="/pokemon/:id" component={Pokemon} />
+    </Switch>
+  </Router>
+);
 
 export default App;
