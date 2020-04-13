@@ -13,7 +13,7 @@ const BASE_URL = 'https://pokeapi.co/api/v2/';
 export const getPokemons = () => dispatch => {
   dispatch(getPokemonsStarted());
 
-  const requestUrl = `${BASE_URL}pokemon`;
+  const requestUrl = `${BASE_URL}pokemon?limit=151`;
   axios.get(requestUrl, { mode: 'cors' })
     .then(response => {
       const pokemons = response.data.results.map(({ name, url }) => {

@@ -20,7 +20,7 @@ const Home = ({ pokemons, loading, getPokemons }) => {
 Home.propTypes = {
   pokemons: PropTypes.arrayOf(PropTypes.shape({
     id: PropTypes.string,
-    name: PropTypes.string
+    name: PropTypes.string,
   })).isRequired,
   loading: PropTypes.bool.isRequired,
   getPokemons: PropTypes.func.isRequired,

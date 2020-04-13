@@ -5,7 +5,6 @@ const Navigation = () => (
   <nav>
     <ul>
       <li><Link to="/">Home</Link></li>
-      <li><Link to="/pokemon/bulbasaur">Bulbasaur</Link></li>
     </ul>
   </nav>
 );
