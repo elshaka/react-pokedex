@@ -3,6 +3,7 @@ import axios from 'axios';
 export const GET_POKEMONS_STARTED = 'GET_POKEMONS_STARTED';
 export const GET_POKEMONS_SUCCESS = 'GET_POKEMONS_SUCCESS';
 export const GET_POKEMONS_FAILURE = 'GET_POKEMONS_FAILURE';
+export const SET_POKEMON_FILTER = 'SET_POKEMONS_FILTER';
 
 const getPokemonsStarted = () => ({ type: GET_POKEMONS_STARTED });
 const getPokemonsSuccess = pokemons => ({ type: GET_POKEMONS_SUCCESS, payload: pokemons });
@@ -24,3 +25,5 @@ export const getPokemons = () => dispatch => {
     })
     .catch(() => { dispatch(getPokemonsFailure()); });
 };
+
+export const setPokemonFilter = filter => ({ type: SET_POKEMON_FILTER, payload: filter });
