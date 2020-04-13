@@ -1,8 +1,6 @@
-const rootReducer = (state, { action, payload }) => {
-  switch (action) {
-    default:
-      return state;
-  }
-};
+import { combineReducers } from 'redux';
+import pokemonsReducer from './pokemonsReducer';
+
+const rootReducer = combineReducers({ pokemons: pokemonsReducer });
 
 export default rootReducer;
