@@ -3,7 +3,7 @@ import { GET_POKEMONS_STARTED, GET_POKEMONS_SUCCESS, GET_POKEMONS_FAILURE } from
 const defaultState = {
   loading: false,
   list: [],
-  error: false
+  error: false,
 };
 
 const pokemonsReducer = (state = defaultState, { type, payload }) => {
@@ -11,19 +11,19 @@ const pokemonsReducer = (state = defaultState, { type, payload }) => {
     case GET_POKEMONS_STARTED:
       return {
         ...defaultState,
-        loading: true
+        loading: true,
       };
     case GET_POKEMONS_SUCCESS:
       return {
         loading: false,
         list: payload,
-        error: false
+        error: false,
       };
     case GET_POKEMONS_FAILURE:
       return {
         ...state,
         loading: false,
-        error: true
+        error: true,
       };
     default:
       return state;

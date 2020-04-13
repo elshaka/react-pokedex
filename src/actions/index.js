@@ -16,7 +16,10 @@ export const getPokemons = () => dispatch => {
   const requestUrl = `${BASE_URL}pokemon`;
   axios.get(requestUrl, { mode: 'cors' })
     .then(response => {
-      const pokemons = response.data.results.map(result => result.name);
+      const pokemons = response.data.results.map(({ name, url }) => {
+        const id = url.match(/(\d+)\/$/)[1];
+        return { id, name };
+      });
       dispatch(getPokemonsSuccess(pokemons));
     })
     .catch(() => { dispatch(getPokemonsFailure()); });
