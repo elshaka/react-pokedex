@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import InfiniteScroll from 'react-infinite-scroll-component';
+import PokemonListItem from './PokemonListItem';
 
 const PER_PAGE = 10;
 
@@ -20,7 +21,7 @@ const PokemonList = ({ pokemons }) => {
         </p>
       )}
     >
-      {scrollablePokemons.map(({ id, name }) => <div style={{ height: '100px' }} key={id}><a href={`pokemon/${id}`}>{name}</a></div>)}
+      {scrollablePokemons.map(pokemon => <PokemonListItem key={pokemon.id} pokemon={pokemon} />) }
     </InfiniteScroll>
   );
 };
@@ -29,6 +30,7 @@ PokemonList.propTypes = {
   pokemons: PropTypes.arrayOf(PropTypes.shape({
     id: PropTypes.string,
     name: PropTypes.string,
+    iconUrl: PropTypes.string,
   })).isRequired,
 };
 

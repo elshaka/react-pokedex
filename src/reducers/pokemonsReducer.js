@@ -1,4 +1,6 @@
-import { GET_POKEMONS_STARTED, GET_POKEMONS_SUCCESS, GET_POKEMONS_FAILURE, SET_POKEMON_FILTER } from '../actions';
+import {
+  GET_POKEMONS_STARTED, GET_POKEMONS_SUCCESS, GET_POKEMONS_FAILURE, SET_POKEMON_FILTER,
+} from '../actions';
 
 const defaultState = {
   filter: '',
@@ -30,8 +32,8 @@ const pokemonsReducer = (state = defaultState, { type, payload }) => {
     case SET_POKEMON_FILTER:
       return {
         ...state,
-        filter: payload
-      }
+        filter: payload,
+      };
     default:
       return state;
   }
