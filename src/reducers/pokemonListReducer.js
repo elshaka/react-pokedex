@@ -1,5 +1,8 @@
 import {
-  GET_POKEMONS_STARTED, GET_POKEMONS_SUCCESS, GET_POKEMONS_FAILURE, SET_POKEMON_FILTER,
+  GET_POKEMON_LIST_STARTED,
+  GET_POKEMON_LIST_SUCCESS,
+  GET_POKEMON_LIST_FAILURE,
+  SET_POKEMON_LIST_FILTER,
 } from '../actions';
 
 const defaultState = {
@@ -11,25 +14,25 @@ const defaultState = {
 
 const pokemonsReducer = (state = defaultState, { type, payload }) => {
   switch (type) {
-    case GET_POKEMONS_STARTED:
+    case GET_POKEMON_LIST_STARTED:
       return {
         ...defaultState,
         loading: true,
       };
-    case GET_POKEMONS_SUCCESS:
+    case GET_POKEMON_LIST_SUCCESS:
       return {
         ...state,
         loading: false,
         list: payload,
         error: false,
       };
-    case GET_POKEMONS_FAILURE:
+    case GET_POKEMON_LIST_FAILURE:
       return {
         ...state,
         loading: false,
         error: true,
       };
-    case SET_POKEMON_FILTER:
+    case SET_POKEMON_LIST_FILTER:
       return {
         ...state,
         filter: payload,

@@ -1,42 +1,48 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import PokemonFilter from './PokemonFilter';
+import PokemonListFilter from './PokemonListFilter';
 import Spinner from './Spinner';
 import PokemonList from './PokemonList';
 import { getPokemons } from '../actions';
 
 const Home = ({
-  pokemons, loading, filter, getPokemons,
+  list, loading, filter, error, getPokemons,
 }) => {
   useEffect(() => {
     getPokemons();
   }, [getPokemons]);
 
-  const filteredPokemons = pokemons.filter(p => p.name.includes(filter));
+  const filteredPokemons = list.filter(p => p.name.includes(filter));
 
   return (
     <div>
-      <PokemonFilter />
+      <PokemonListFilter />
       { loading ? <Spinner /> : <PokemonList pokemons={filteredPokemons} />}
     </div>
   );
 };
 
 Home.propTypes = {
-  pokemons: PropTypes.arrayOf(PropTypes.shape({
+  list: PropTypes.arrayOf(PropTypes.shape({
     id: PropTypes.string,
     name: PropTypes.string,
   })).isRequired,
   loading: PropTypes.bool.isRequired,
   filter: PropTypes.string.isRequired,
+  error: PropTypes.bool.isRequired,
   getPokemons: PropTypes.func.isRequired,
 };
 
-const mapStateToProps = ({ pokemons }) => ({
-  pokemons: pokemons.list,
-  loading: pokemons.loading,
-  filter: pokemons.filter,
+const mapStateToProps = ({
+  pokemonList: {
+    list, loading, filter, error,
+  },
+}) => ({
+  list,
+  loading,
+  error,
+  filter,
 });
 
 const mapDispatchToProps = { getPokemons };

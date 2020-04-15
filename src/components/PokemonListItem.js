@@ -6,7 +6,7 @@ const PokemonListItem = ({ pokemon }) => {
   const { id, name, iconUrl } = pokemon;
   return (
     <div style={{ height: '100px' }}>
-      <img src={iconUrl} />
+      <img src={iconUrl} alt={name} />
       <Link to={`pokemon/${id}`}>{name}</Link>
     </div>
   );
