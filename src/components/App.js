@@ -5,8 +5,8 @@ import {
   Route,
 } from 'react-router-dom';
 import Navigation from './Navigation';
-import Home from './Home';
-import Pokemon from './Pokemon';
+import Home from './Home/';
+import Pokemon from './Pokemon/';
 
 const App = () => (
   <Router>

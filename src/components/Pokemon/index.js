@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import Spinner from './Spinner';
+import Spinner from '../Shared/Spinner';
 import PokemonCard from './PokemonCard';
-import { getPokemon } from '../actions';
+import { getPokemon } from '../../actions';
 
 const Pokemon = ({
   loading, item, error, getPokemon, match: { params: { id } },

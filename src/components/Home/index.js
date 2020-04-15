@@ -1,10 +1,10 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import PokemonListFilter from './PokemonListFilter';
-import Spinner from './Spinner';
+import Filter from './Filter';
+import Spinner from '../Shared/Spinner';
 import PokemonList from './PokemonList';
-import { getPokemons } from '../actions';
+import { getPokemons } from '../../actions';
 
 const Home = ({
   list, loading, filter, error, getPokemons,
@@ -17,7 +17,7 @@ const Home = ({
 
   return (
     <div>
-      <PokemonListFilter />
+      <Filter />
       { loading ? <Spinner /> : <PokemonList pokemons={filteredPokemons} />}
     </div>
   );
